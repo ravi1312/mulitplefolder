@@ -2,7 +2,7 @@
 commit=$1
 token=$2
 v=`echo "$commit"| awk '{print $1}'`
-echo "$v"
+#echo "$v"
 #array=($(echo $commit | awk '{gsub(",","\n")} 1' | awk '{print $1}'))
 #echo "$array"
 #echo "git pull https://$token@github.com/thermofisher/tfsds-Databricks-Notebook-Deploy-POC.git"
@@ -11,7 +11,7 @@ echo "$v"
  
 
 array=$(echo $commit | awk '{gsub(",","\n")} 1' | awk '{print $1}')
-echo "$array"
+#echo "$array"
 for i in `echo $array`
 
 do
