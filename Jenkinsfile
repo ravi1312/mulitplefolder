@@ -6,6 +6,7 @@ pipeline{
 	stages{
 		stage("build"){
 			steps{
+				sh "git sparse-checkout --list demo/demo1/demo2/demo3"
 				echo "hello world"
 				sh "ls -lrt"
 				sh "ls"
