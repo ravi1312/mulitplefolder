@@ -6,8 +6,8 @@ pipeline{
 	stages{
 		stage("build"){
 			steps{
-				sh "git sparse-checkout init"
-				sh "git sparse-checkout list demo/demo1/demo2/demo3"
+				sh "git config core.sparsecheckout true"
+				//sh "git sparse-checkout list demo/demo1/demo2/demo3"
 				echo "demo/demo1/demo2/demo3/ >> .git/info/sparse-checkout"
 				echo "hello world"
 				sh "ls -lrt"
