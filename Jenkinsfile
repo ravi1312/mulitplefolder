@@ -1,8 +1,5 @@
 pipeline{
 	agent any
-	options{
-		checkoutToSubdirectory('nothing')
-	}
 	stages{
 		stage("build"){
 			steps{
@@ -14,6 +11,7 @@ pipeline{
 				//echo "hello world"
 				sh "pwd"
 				sh "ls -lrt"
+				sh "pwd"
 				sh "ls"
 				sh "pwd"
 				sh "cat $WORKSPACE/file/file1/file2/file3/file3.py"
