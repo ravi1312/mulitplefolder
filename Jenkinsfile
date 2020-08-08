@@ -9,7 +9,7 @@ pipeline{
 				sh "git sparse-checkout set file/file1"
 				sh "git sparse-checkout list file/file1"
 				sh "cd file/file1"
-				sh "ls"
+				sh "ls file/file1"
 				sh "tree file"
 				sh "ls"
 				//sh 'echo "file1/file2/file3/ >> .git/info/sparse-checkout"'
