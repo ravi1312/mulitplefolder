@@ -8,8 +8,8 @@ pipeline{
 				sh "git sparse-checkout init file/file1/file2/"
 				sh "git sparse-checkout set file/file1/file2/"
 				sh "git sparse-checkout list file/file1/file2/"
-				sh "cd file/file1"
-				sh "ls file/file1"
+				sh "cd file/file1/file2"
+				sh "ls file/file1/file2"
 				sh "tree file"
 				sh "ls"
 				//sh 'echo "file1/file2/file3/ >> .git/info/sparse-checkout"'
