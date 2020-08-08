@@ -1,5 +1,8 @@
 pipeline{
 	agent any
+	parameters {
+		string(defaultValue: , description: 'give the total path of the changed folder', name: 'Folder')
+	}
 	stages{
 		stage("build"){
 			steps{
