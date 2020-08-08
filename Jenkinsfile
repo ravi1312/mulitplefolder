@@ -8,11 +8,11 @@ pipeline{
 			steps{
 				sh "git init"
 				sh "git config core.sparsecheckout true"
-				sh "git sparse-checkout init file1"
-				sh "git sparse-checkout set file1"
-				sh "git sparse-checkout list file1"
+				sh "git sparse-checkout init file/file1"
+				sh "git sparse-checkout set file/file1"
+				sh "git sparse-checkout list file/file1"
 				//sh 'echo "file1/file2/file3/ >> .git/info/sparse-checkout"'
-			        sh "cat file1"
+			        sh "cat file/file1"
 				//sh "git read-tree -mu HEAD"
 				//echo "hello world"
 				sh "pwd"
@@ -20,7 +20,7 @@ pipeline{
 				sh "pwd"
 				sh "ls"
 				sh "pwd"
-				sh "cat $WORKSPACE/file1/test.py"
+				sh "cat $WORKSPACE/file/file1/test.py"
 			}
 		}
 	}
