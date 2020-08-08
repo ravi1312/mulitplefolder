@@ -8,7 +8,7 @@ pipeline{
 			steps{
 				sh "git init"
 				sh "git config core.sparsecheckout true"
-				sh "git sparse-checkout init '${params.userFlag}'
+				sh "git sparse-checkout init '${params.userFlag}'"
 				sh "git sparse-checkout set '${params.userFlag}'"
 				sh "git sparse-checkout list '${params.userFlag}'"
 				sh "git sparse-checkout list '${params.userFlag}'"
