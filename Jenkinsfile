@@ -14,7 +14,7 @@ pipeline{
 				sh "ls -lrt"
 				sh "ls"
 				sh "pwd"
-				//sh "cat $WORKSPACE/nothing/demo/demo1/demo2/demo3/file.py"
+				sh "cat $WORKSPACE/file/file1/file2/file3/file3.py"
 			}
 		}
 	}
