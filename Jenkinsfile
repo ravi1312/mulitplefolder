@@ -1,9 +1,6 @@
 pipeline{
 	agent any
 	stages{
-		options{
-			checkoutToSubdirectory('file/file1/file2/file3/')
-		}
 		stage("build"){
 			steps{
 				sh "git init"
@@ -13,6 +10,7 @@ pipeline{
 				sh "git sparse-checkout list file/file1"
 				sh "cd file/file1"
 				sh "ls"
+				sh "cd file"
 				//sh 'echo "file1/file2/file3/ >> .git/info/sparse-checkout"'
 			       // sh "cat file/file1"
 				//sh "git read-tree -mu HEAD"
