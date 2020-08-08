@@ -11,6 +11,7 @@ pipeline{
 				sh "cd file/file1"
 				sh "ls"
 				sh "cd file"
+				sh "ls"
 				//sh 'echo "file1/file2/file3/ >> .git/info/sparse-checkout"'
 			       // sh "cat file/file1"
 				//sh "git read-tree -mu HEAD"
