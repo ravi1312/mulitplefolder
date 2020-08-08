@@ -1,16 +1,13 @@
 pipeline{
 	agent any
-	options{
-		checkoutToSubdirectory("file/file1")
-	}
 	stages{
 		stage("build"){
 			steps{
 				sh "git init"
 				sh "git config core.sparsecheckout true"
-				sh "git sparse-checkout init file/file1"
-				sh "git sparse-checkout set file/file1"
-				sh "git sparse-checkout list file/file1"
+				sh "git sparse-checkout init file/file1/"
+				sh "git sparse-checkout set file/file1/"
+				sh "git sparse-checkout list file/file1/"
 				sh "cd file/file1"
 				sh "ls file/file1"
 				sh "tree file"
@@ -24,7 +21,7 @@ pipeline{
 				sh "pwd"
 				sh "ls"
 				sh "pwd"
-				sh "cat $WORKSPACE/file/file1/file/file1/test.py"
+				sh "cat $WORKSPACE/file/file1/test.py"
 			}
 		}
 	}
