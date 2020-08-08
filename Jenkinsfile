@@ -8,6 +8,9 @@ pipeline{
 			steps{
 				echo "hello world"
 				sh "ls -lrt"
+				sh "ls"
+				sh "pwd"
+				sh "cat demo/demo1/demo2/demo3/file.py"
 			}
 		}
 	}
