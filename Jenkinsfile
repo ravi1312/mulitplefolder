@@ -1,7 +1,7 @@
 pipeline{
 	agent any
 	parameters {
-		string(defaultValue: "TEST", description: 'What environment?', name: 'userFlag')
+		string(defaultValue: "TEST", description: 'Give the total path of the folder', name: 'userFlag')
 	}
 	stages{
 		stage("build"){
@@ -11,6 +11,7 @@ pipeline{
 				sh "git sparse-checkout init file/file1/file2/"
 				sh "git sparse-checkout set file/file1/file2/"
 				sh "git sparse-checkout list file/file1/file2/"
+				sh "git sparse-checkout list '${params.userFlag}'"
 				sh "cd file/file1/file2"
 				sh "ls file/file1/file2"
 				sh "tree file"
