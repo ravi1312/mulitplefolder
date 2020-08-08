@@ -1,7 +1,7 @@
 pipeline{
 	agent any
 	options{
-		checkoutToSubdirectory('demo/demo1/demo2/demo3')
+		checkoutToSubdirectory('nothing')
 	}
 	stages{
 		stage("build"){
@@ -10,7 +10,7 @@ pipeline{
 				sh "ls -lrt"
 				sh "ls"
 				sh "pwd"
-				sh "cat $WORKSPACE/demo/demo1/demo2/demo3/demo/demo1/demo2/demo3/file.py"
+				sh "cat $WORKSPACE/nothing/demo/demo1/demo2/demo3/file.py"
 			}
 		}
 	}
