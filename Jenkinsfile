@@ -7,6 +7,7 @@ pipeline{
 		stage("build"){
 			steps{
 				echo "hello world"
+				sh "ls -lrt"
 			}
 		}
 	}
