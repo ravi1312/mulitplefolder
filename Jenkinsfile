@@ -9,6 +9,8 @@ pipeline{
 				sh "git init"
 				sh "git config core.sparsecheckout true"
 				sh "git sparse-checkout init file/file1/file2/file3/"
+				sh "git sparse-checkout set file/file1/file2/file3/"
+				sh "git sparse-checkout list file/file1/file2/file3/"
 				sh 'echo "file/file1/file2/file3/ >> .git/info/sparse-checkout"'
 				//sh "git read-tree -mu HEAD"
 				//echo "hello world"
