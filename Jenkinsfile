@@ -15,12 +15,6 @@ pipeline{
 				sh "ls"
 				sh "pwd"
 				sh "cat $WORKSPACE/file/file1/file2/file3/file3.py"
-				sh '''
-				git clone https://github.com/ravi1312/mulitplefolder.git --no-checkout file/file1/file2/file3/
-				cd file/file1/file2/file3/
-				git sparse-checkout init --cone # to fetch only root files
-				git sparse-checkout list
-				'''
 			}
 		}
 	}
