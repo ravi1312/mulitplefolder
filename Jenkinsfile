@@ -20,7 +20,7 @@ pipeline{
 				git clone https://github.com/ravi1312/mulitplefolder.git --no-checkout file/file1/file2/file3/
 				cd file/file1/file2/file3/
 				git sparse-checkout init --cone # to fetch only root files
-				cat .git/info/sparse-checkout
+				git sparse-checkout list
 				'''
 			}
 		}
