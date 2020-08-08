@@ -21,7 +21,7 @@ pipeline{
 				sh "pwd"
 				sh "ls"
 				sh "pwd"
-				sh "cat $WORKSPACE/file/file1/test.py"
+				sh "cat $WORKSPACE/file/file1/file2/test1.py"
 			}
 		}
 	}
