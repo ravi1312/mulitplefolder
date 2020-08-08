@@ -21,7 +21,6 @@ pipeline{
 				cd file/file1/file2/file3/
 				git sparse-checkout init --cone # to fetch only root files
 				cat .git/info/sparse-checkout
-				git sparse-checkout list file/file1/file2/file3/
 				'''
 			}
 		}
