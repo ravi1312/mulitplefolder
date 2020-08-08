@@ -1,5 +1,7 @@
 pipeline{
 	agent any
+	options{
+		checkoutToSubdirectory("file/file1")
 	stages{
 		stage("build"){
 			steps{
