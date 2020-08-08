@@ -10,7 +10,7 @@ pipeline{
 				sh "ls -lrt"
 				sh "ls"
 				sh "pwd"
-				sh "cat $WORKSPACE/demo/demo1/demo2/demo3/file.py"
+				sh "ls $WORKSPACE/demo/"
 			}
 		}
 	}
