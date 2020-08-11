@@ -11,6 +11,8 @@ v=`echo "$commit"| awk '{print $1}'`
  
 
 array=$(echo $commit | awk '{gsub(",","\n")} 1' | awk '{print $1}')
+res = $(arr[::-1])
+echo "$res"
 #echo "$array"
 for i in `echo $array`
 
