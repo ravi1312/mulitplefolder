@@ -1,5 +1,5 @@
 @Library('Jenkins_shared_libraries') _
 
 log.info 'prod'
-multienv 'nothing'
+multienv 'prod'
 evenOrOdd(currentBuild.getNumber())
