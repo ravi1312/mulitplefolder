@@ -2,4 +2,3 @@
 
 log.info 'prod'
 multienv 'prod'
-evenOrOdd(currentBuild.getNumber())
