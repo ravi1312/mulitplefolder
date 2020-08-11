@@ -1,3 +1,3 @@
-@Library('my-shared-library') _
+@Library('Jenkins_shared_libraries') _
 
 evenOrOdd(currentBuild.getNumber())
