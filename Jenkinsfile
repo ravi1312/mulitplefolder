@@ -1,4 +1,4 @@
 @Library('Jenkins_shared_libraries') _
 
-log.info 'Starting'
+log.info 'prod'
 evenOrOdd(currentBuild.getNumber())
