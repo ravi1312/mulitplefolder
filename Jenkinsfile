@@ -14,7 +14,7 @@ pipeline{
 				sh "git sparse-checkout list '${params.userFlag}'"
 				sh "git status"
 				sh "ls"
-				sh "tree file"
+				sh "tree '${params.userFlag}'"
 			
 				sh """
 				git checkout -b subset
