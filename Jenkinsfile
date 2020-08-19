@@ -19,7 +19,7 @@ pipeline{
 				
 				git add .
 				ls -lrt 
-				git ls tree subset 
+				git tree subset 
 				git commit -m "message"
 				git pull https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git
 				git push https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git
