@@ -14,10 +14,25 @@ pipeline{
 				sh "git sparse-checkout list '${params.userFlag}'"
 				sh "ls"
 				sh "tree file"
-				sh "git checkout -b subset"
+				sh """
+				git checkout -b subset
+				ls
+				git rm file1.txt file2.txt # (remove the files you don't want on this branch)
+				git commit -m 'removed some stuff'
+				git checkout master # (go back to master)
+				git merge --strategy ours subset # (record a merge from the subset branch, but make no actual changes to master)
+				git checkout subset
+				# (edit file3.txt)
+				git add file3.txt
+				git commit -m 'edited file3'
+				git checkout master # (back to master again)
+				git merge subset # (will merge the change to file3.txt but still not the deletions)
+				"""
+				sh "git checkout -b testing"
 				sh "git add ."
 				sh 'git commit -m "commiting newfiles"'
-				sh "git push -u origin subset"
+				sh "git merge subset"
+				sh "git push -u origin testing"
 				//sh 'echo "file1/file2/file3/ >> .git/info/sparse-checkout"'
 			       // sh "cat file/file1"
 				//sh "git read-tree -mu HEAD"
