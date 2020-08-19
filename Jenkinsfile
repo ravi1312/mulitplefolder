@@ -15,17 +15,14 @@ pipeline{
 				sh "ls"
 				sh "tree file"
 				sh """
+				git checkout -b subset
+
+				git add .
+				git commit -m "message"
+				git push https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git
 				
 				"""
-				sh """
-				git checkout -b subset
-				ls -lrt
-				cd '${params.userFlag}'
-				git add .
-				git commit 
-				git push https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git				
-
-				
+				sh """				
 				git checkout master # (go back to master)
 				git merge --strategy ours subset # (record a merge from the subset branch, but make no actual changes to master)
 				git checkout subset
