@@ -19,6 +19,8 @@ pipeline{
 				sh "git add ."
 				sh "git status"
 				sh "git branch -a"
+				
+				sh  'echo "nothing to change" >>file/test.py'
 				sh 'git commit -m "message"'
 				//sh "git push https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git"
 			//	sh "git push origin https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git"
