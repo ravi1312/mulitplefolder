@@ -23,9 +23,8 @@ pipeline{
 				cd '${params.userFlag}'
 				git add .
 				git commit 
-				git pull origin master
-				git merge subset
-				git push https://github.com/ravi1312/mulitplefolder.git
+				git push https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git				
+
 				
 				git checkout master # (go back to master)
 				git merge --strategy ours subset # (record a merge from the subset branch, but make no actual changes to master)
