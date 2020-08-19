@@ -14,19 +14,10 @@ pipeline{
 				sh "git sparse-checkout list '${params.userFlag}'"
 				sh "ls"
 				sh "tree file"
+			
 				sh """
 				git checkout -b subset
-				
-				git add .
-				ls -lrt 
-				git tree subset 
-				git commit -m "message"
-				git pull https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git
-				git push https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git
-				
-				"""
-				sh """
-				git checkout -b subset
+				ls -la
 				git add .
 				git checkout master # (go back to master)
 				git merge --strategy ours subset # (record a merge from the subset branch, but make no actual changes to master)
