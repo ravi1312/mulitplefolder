@@ -16,6 +16,8 @@ pipeline{
 				sh "ls"
 				sh "tree '${params.userFlag}'"
 				sh "git checkout -b testing"
+				sh "ls"
+				sh "tree"
 				sh  'echo "nothing to change" >>file/test.py'
 				sh "git add ."
 				sh "git status"
