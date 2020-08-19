@@ -17,8 +17,9 @@ pipeline{
 				sh "tree '${params.userFlag}'"
 				sh "git checkout -b testing"
 				sh "git add ."
+				sh "git status"
 				sh 'git commit -m "message"'
-				sh "git push origin https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git"
+			//	sh "git push origin https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git"
 				//sh 'echo "file1/file2/file3/ >> .git/info/sparse-checkout"'
 			       // sh "cat file/file1"
 				//sh "git read-tree -mu HEAD"
