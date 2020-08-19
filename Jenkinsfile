@@ -25,13 +25,13 @@ pipeline{
 				git checkout subset
 				# (edit file3.txt)
 				git add .
-				git commit -b "message"
-				git checkout -b master # (back to master again)
-				git merge -b subset # (will merge the change to file3.txt but still not the deletions)
+				git commit -m "message"
+				git checkout master # (back to master again)
+				git merge subset # (will merge the change to file3.txt but still not the deletions)
 				"""
 				sh "git checkout -b testing"
 				sh "git add ."
-				sh 'git commit -b "message""'
+				sh 'git commit -m "message""'
 				sh "git merge subset"
 				sh "git push -u origin testing"
 				//sh 'echo "file1/file2/file3/ >> .git/info/sparse-checkout"'
