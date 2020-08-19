@@ -19,9 +19,8 @@ pipeline{
 				sh """
 				git checkout -b subset
 				ls -la
-				git rm 
 				git add .
-				git checkout master # (go back to master)
+				git checkout -b master # (go back to master)
 				git merge --strategy ours subset # (record a merge from the subset branch, but make no actual changes to master)
 				git checkout subset
 				# (edit file3.txt)
