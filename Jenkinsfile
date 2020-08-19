@@ -22,7 +22,7 @@ pipeline{
 				ls -lrt
 				cd '${params.userFlag}'
 				git add .
-				git commit -a "message"
+				git commit -a
 				git push https://github.com/ravi1312/mulitplefolder.git
 				
 				git checkout master # (go back to master)
