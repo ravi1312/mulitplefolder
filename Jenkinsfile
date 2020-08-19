@@ -21,7 +21,7 @@ pipeline{
 				sh "git status"
 				sh "git branch -a"
 				sh 'git commit -m "message"'
-				sh "git push https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git"
+				sh "git push https://482684f7e88b87b5061320dee767f2ba30239005@github.com/ravi1312/mulitplefolder.git"
 			//	sh "git push origin https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git"
 				//sh 'echo "file1/file2/file3/ >> .git/info/sparse-checkout"'
 			       // sh "cat file/file1"
