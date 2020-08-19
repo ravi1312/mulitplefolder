@@ -12,12 +12,14 @@ pipeline{
 				sh "git sparse-checkout set '${params.userFlag}'"
 				sh "git sparse-checkout list '${params.userFlag}'"
 				sh "git sparse-checkout list '${params.userFlag}'"
+				sh "git status"
 				sh "ls"
 				sh "tree file"
 			
 				sh """
 				git checkout -b subset
 				ls -la
+				git rm 
 				git add .
 				git checkout master # (go back to master)
 				git merge --strategy ours subset # (record a merge from the subset branch, but make no actual changes to master)
