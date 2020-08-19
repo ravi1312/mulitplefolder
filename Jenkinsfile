@@ -17,13 +17,14 @@ pipeline{
 				sh """
 				git checkout -b subset
 				ls -lrt
-				git rm file.py test.py # (remove the files you don't want on this branch)
+				cd '${params.userFlag}'
+				git rm test1.py # (remove the files you don't want on this branch)
 				git commit -m 'removed some stuff'
 				git checkout master # (go back to master)
 				git merge --strategy ours subset # (record a merge from the subset branch, but make no actual changes to master)
 				git checkout subset
 				# (edit file3.txt)
-				git add test1.py
+				git add file3.py
 				git commit -m 'edited file3'
 				git checkout master # (back to master again)
 				git merge subset # (will merge the change to file3.txt but still not the deletions)
