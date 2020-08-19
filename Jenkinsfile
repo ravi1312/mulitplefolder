@@ -23,6 +23,7 @@ pipeline{
 				cd '${params.userFlag}'
 				git add .
 				git commit 
+				git pull origin master
 				git merge subset
 				git push https://github.com/ravi1312/mulitplefolder.git
 				
