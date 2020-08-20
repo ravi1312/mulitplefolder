@@ -17,6 +17,7 @@ pipeline{
 				sh "tree '${params.userFlag}'"
 				sh """
 				git checkout -b subset
+				git rm -r
 				git rm -v !("file3/file3.py") 
 				git commit -m 'removed some stuff'
 				git checkout master # (go back to master)
