@@ -17,25 +17,19 @@ pipeline{
 				sh "tree '${params.userFlag}'"
 				
 				sh """
-				mkdir testing
-				cd testing
-				touch file1.py file2.py file3.py file4.py
-				rm -rf !(file1.py)
-				ls
-				rm -v !("file2.py"|"file3.py")
+				echo "$userFlag"
 				git checkout -b subset
-				echo '${params.userFlag}' >>sample.py
-				git rm -rf !(sample.py)
+				sh /var/lib/jenkins/notebook.sh "${userFlag}"
 				git commit -m 'removed some stuff'
 				git checkout master # (go back to master)
 				git merge --strategy ours subset # (record a merge from the subset branch, but make no actual changes to master)
 				git checkout subset
 				# (edit file3.txt)
 				git add '${params.userFlag}'
-				sh  'echo "nothing to change" >>'${params.userFlag}'/test.py'
 				git commit -m 'edited file3'
 				git checkout master # (back to master again)
 				git merge subset # (will merge the change to file3.txt but still not the deletions)
+				git push origin subset
 				"""
 			//	sh "git push origin https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git"
 				//sh 'echo "file1/file2/file3/ >> .git/info/sparse-checkout"'
