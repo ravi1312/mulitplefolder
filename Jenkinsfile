@@ -19,7 +19,9 @@ pipeline{
 				sh """
 				echo "$folderpath"
 				git checkout -b subset
-				sh script.sh "/home/ubuntu/tested" "${folderpath}"
+				pwd
+				$WORKSPACE
+				sh /var/lib/jenkins/script.sh "$WORKSPACE/tested" "${folderpath}"
 				git commit -m 'removed some stuff'
 				git checkout master # (go back to master)
 				git merge --strategy ours subset # (record a merge from the subset branch, but make no actual changes to master)
