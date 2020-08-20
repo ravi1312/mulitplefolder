@@ -15,15 +15,20 @@ pipeline{
 				sh "git status"
 				sh "ls"
 				sh "tree '${params.userFlag}'"
-				sh "git checkout -b testing"
-				sh "ls"
-				sh "tree"
-				sh  'echo "nothing to change" >>file/test.py'
-				sh "git add ."
-				sh "git status"
-				sh "git branch -a"
-				sh 'git commit -m "message"'
-				sh "git push https://482684f7e88b87b5061320dee767f2ba30239005@github.com/ravi1312/mulitplefolder.git"
+				sh """
+				git checkout -b subset
+				git rm -v !("${params.userFlag}") # (remove the files you don't want on this branch)
+				git commit -m 'removed some stuff'
+				git checkout master # (go back to master)
+				git merge --strategy ours subset # (record a merge from the subset branch, but make no actual changes to master)
+				git checkout subset
+				# (edit file3.txt)
+				git add '${params.userFlag}'
+				sh  'echo "nothing to change" >>'${params.userFlag}'/test.py'
+				git commit -m 'edited file3'
+				git checkout master # (back to master again)
+				git merge subset # (will merge the change to file3.txt but still not the deletions)
+				"""
 			//	sh "git push origin https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git"
 				//sh 'echo "file1/file2/file3/ >> .git/info/sparse-checkout"'
 			       // sh "cat file/file1"
