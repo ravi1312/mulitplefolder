@@ -19,7 +19,9 @@ pipeline{
 				sh """
 				echo "$folderpath"
 				git checkout -b subset
+				ls
 				find . -type 'f' | grep -v "${params.folderpath}" | xargs rm -rf
+				ls
 				git commit -m 'removed some stuff'
 				git checkout master # (go back to master)
 				git merge --strategy ours subset # (record a merge from the subset branch, but make no actual changes to master)
