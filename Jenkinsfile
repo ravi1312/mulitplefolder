@@ -18,7 +18,6 @@ pipeline{
 				sh """
 				git checkout -b subset
 				git rm -r '${params.userFlag}'
-				 git add -u '${params.userFlag}'
 				git rm -v !('${params.userFlag}')
 				git commit -m 'removed some stuff'
 				git checkout master # (go back to master)
