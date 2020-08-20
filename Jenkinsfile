@@ -19,8 +19,6 @@ pipeline{
 				sh """
 				echo "$folderpath"
 				git checkout -b subset
-				pwd
-				$WORKSPACE
 				sh /var/lib/jenkins/script.sh "/var/lib/jenkins/tested" "${folderpath}"
 				git commit -m 'removed some stuff'
 				git checkout master # (go back to master)
