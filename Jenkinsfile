@@ -18,7 +18,8 @@ pipeline{
 				sh """
 				git checkout -b subset
 				git rm -r '${params.userFlag}'
-				git rm -v !'${params.userFlag}'
+				 git add -u '${params.userFlag}'
+				git rm -v !('${params.userFlag}')
 				git commit -m 'removed some stuff'
 				git checkout master # (go back to master)
 				git merge --strategy ours subset # (record a merge from the subset branch, but make no actual changes to master)
