@@ -25,8 +25,9 @@ pipeline{
 				git merge --strategy ours subset # (record a merge from the subset branch, but make no actual changes to master)
 				git checkout subset
 				# (edit file3.txt)
+				echo "nothing" >>'${params.folderpath}'/test.py
 				git add '${params.folderpath}'
-				git commit -m 'edited file3'
+				git commit -a 'edited file3'
 				git checkout master # (back to master again)
 				git merge subset # (will merge the change to file3.txt but still not the deletions)
 				git push origin subset
