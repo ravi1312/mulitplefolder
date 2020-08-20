@@ -20,7 +20,7 @@ pipeline{
 				echo "$folderpath"
 				git checkout -b subset
 				ls
-				find . -type 'f' | grep -v "${params.folderpath}" | xargs rm -rf
+				find . -type 'd' | grep -v "${params.folderpath}" | xargs rm -rf
 				ls
 				git commit -m 'removed some stuff'
 				git checkout master # (go back to master)
