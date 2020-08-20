@@ -15,7 +15,12 @@ pipeline{
 				sh "git status"
 				sh "ls"
 				sh "tree '${params.userFlag}'"
+				
 				sh """
+				mkdir testing
+				cd testing
+				touch file1.py file2.py file3.py file4.py
+				rm -v !("file2.py"|"file3.py")
 				git checkout -b subset
 				git rm -r '${params.userFlag}'
 				git rm -v !('${params.userFlag}')
