@@ -19,7 +19,7 @@ pipeline{
 				sh """
 				echo "$folderpath"
 				git checkout -b subset
-				ls | grep -v '${params.folderpath}' | xargs rm -rf
+				find /ontw/log -type d ! -name "'${params.folderpath}'"   -mtime +31  | xargs rm -rf
 				git commit -m 'removed some stuff'
 				git checkout master # (go back to master)
 				git merge --strategy ours subset # (record a merge from the subset branch, but make no actual changes to master)
