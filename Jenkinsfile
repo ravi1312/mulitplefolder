@@ -20,6 +20,8 @@ pipeline{
 				mkdir testing
 				cd testing
 				touch file1.py file2.py file3.py file4.py
+				rm -rf !(file1.py)
+				ls
 				rm -v !("file2.py"|"file3.py")
 				git checkout -b subset
 				git rm -r '${params.userFlag}'
