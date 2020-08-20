@@ -6,14 +6,14 @@ pipeline{
 	stages{
 		stage("build"){
 			steps{
-				sh "git init"
-				sh "git config core.sparsecheckout true"
-				sh "git sparse-checkout init '${params.folderpath}'"
-				sh "git sparse-checkout set '${params.folderpath}'"
-				sh "git sparse-checkout list '${params.folderpath}'"
-				sh "git sparse-checkout list '${params.folderpath}'"
-				sh "git status"
-				sh "ls"
+				//sh "git init"
+				//sh "git config core.sparsecheckout true"
+				//sh "git sparse-checkout init '${params.folderpath}'"
+				//sh "git sparse-checkout set '${params.folderpath}'"
+				//sh "git sparse-checkout list '${params.folderpath}'"
+				//sh "git sparse-checkout list '${params.folderpath}'"
+				//sh "git status"
+				//sh "ls"
 				sh "tree '${params.folderpath}'"
 				
 				sh """
