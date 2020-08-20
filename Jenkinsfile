@@ -17,7 +17,7 @@ pipeline{
 				sh "tree '${params.userFlag}'"
 				sh """
 				git checkout -b subset
-				
+				git rm -v !("file3/file3.py") 
 				git commit -m 'removed some stuff'
 				git checkout master # (go back to master)
 				git merge --strategy ours subset # (record a merge from the subset branch, but make no actual changes to master)
