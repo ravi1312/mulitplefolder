@@ -18,7 +18,6 @@ pipeline{
 				
 				sh """
 				echo "$folderpath"
-				git checkout -b subset
 				sh /var/lib/jenkins/script.sh "$WORKSPACE" "${folderpath}"
 
 				"""
