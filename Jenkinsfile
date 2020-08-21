@@ -25,6 +25,7 @@ pipeline{
 				
 				git add .
 				git commit -m "commiting new branch"
+				git push https://ravi1312:ravi@131231@github.com/ravi1312/mulitplefolder.git
 				
 				git push --set-upstream origin '${params.Branch}' 
 				"""
