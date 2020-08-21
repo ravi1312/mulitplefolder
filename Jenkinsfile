@@ -19,18 +19,8 @@ pipeline{
 				sh """
 				echo "$folderpath"
 				git checkout -b subset
-				sh /var/lib/jenkins/script.sh "/var/lib/jenkins/tested" "${folderpath}"
-				git commit -m 'removed some stuff'
-				git checkout master # (go back to master)
-				git merge --strategy ours subset # (record a merge from the subset branch, but make no actual changes to master)
-				git checkout subset
-				# (edit file3.txt)
-				echo "nothing" >>'${params.folderpath}'/test.py
-				git add '${params.folderpath}'
-				git commit -a 'edited file3'
-				git checkout master # (back to master again)
-				git merge subset # (will merge the change to file3.txt but still not the deletions)
-				git push origin subset
+				sh /var/lib/jenkins/script.sh "$WORKSPACE" "${folderpath}"
+
 				"""
 			//	sh "git push origin https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git"
 				//sh 'echo "file1/file2/file3/ >> .git/info/sparse-checkout"'
