@@ -23,10 +23,9 @@ pipeline{
 				sh /var/lib/jenkins/script.sh "$WORKSPACE" "${folderpath}"
 				git add .
 				git commit -m "commiting new branch"
-				git checkout master
-				git merge '${params.folderpath}'
-				git push -u origin '${params.folderpath}'
-				git push origin master
+				git config --global user.name "ravi1312"
+    				git config --global user.email ravikanth1312@gmail.com
+
 				git push https://3d65c69b143651f85ece0a7138b431b1cf6c455f@github.com/ravi1312/mulitplefolder.git
 				"""
 			//	sh "git push origin https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git"
