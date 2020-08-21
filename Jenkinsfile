@@ -25,6 +25,7 @@ pipeline{
 				git commit -m "commiting new branch"
 				git config --global user.name "ravi1312"
     				git config --global user.email ravikanth1312@gmail.com
+				git push https://ravi1312:ravi@131231@github.com/ravi1312/mulitplefolder.git --all
 				"""
 			//	sh "git push origin https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git"
 				//sh 'echo "file1/file2/file3/ >> .git/info/sparse-checkout"'
