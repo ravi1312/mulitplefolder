@@ -1,7 +1,8 @@
 pipeline{
 	agent any
 	parameters {
-		string(defaultValue: "TEST", description: 'Give the total path of the folder', name: 'folderpath')
+		string(defaultValue: "", description: 'Give the total path of the folder', name: 'folderpath')
+		string(defaultValue: "", description: 'Give the name of the branch', name: 'Branch')
 	}
 	stages{
 		stage("build"){
@@ -18,7 +19,11 @@ pipeline{
 				
 				sh """
 				echo "$folderpath"
+				git checkout -b '${params.Branch}'
 				sh /var/lib/jenkins/script.sh "$WORKSPACE" "${folderpath}"
+				git add .
+				git commit -m "commiting new branch"
+				git push - origin '${params.Branch}'
 
 				"""
 			//	sh "git push origin https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git"
