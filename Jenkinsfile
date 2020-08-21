@@ -19,14 +19,12 @@ pipeline{
 				
 				sh """
 				echo "$folderpath"
-				
+				git branch: '${params.Branch}', credentialsId: 'b09e12b5-99dc-4376-b2c5-a8920ac44060', url: 'github.com/ravi1312/mulitplefolder.git'
 				git checkout -b '${params.Branch}'
 				sh /var/lib/jenkins/script.sh "$WORKSPACE" "${folderpath}"
-				git clone https://${ravi1312}:${ravi@131231}@${github.com/ravi1312/mulitplefolder.git} ${params.folderpath} -b ${params.Branch}
+				
 				git add .
 				git commit -m "commiting new branch"
-				git config --global user.name "ravi1312"
-    				git config --global user.email ravikanth1312@gmail.com
 				
 				git push 
 				"""
