@@ -16,7 +16,7 @@ pipeline{
 				//sh "git status"
 				//sh "ls"
 				sh "tree '${params.folderpath}'"
-				git url: github.com/ravi1312/mulitplefolder.git, credentialsId: b09e12b5-99dc-4376-b2c5-a8920ac44060
+				git credentialsId: 'b09e12b5-99dc-4376-b2c5-a8920ac44060', url: 'https://github.com/ravi1312/mulitplefolder.git'
 				sh """
 				echo "$folderpath"
 				
