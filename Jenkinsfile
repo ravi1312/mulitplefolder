@@ -16,10 +16,10 @@ pipeline{
 				//sh "git status"
 				//sh "ls"
 				sh "tree '${params.folderpath}'"
-				
+				git url: github.com/ravi1312/mulitplefolder.git, credentialsId: b09e12b5-99dc-4376-b2c5-a8920ac44060
 				sh """
 				echo "$folderpath"
-				git url: github.com/ravi1312/mulitplefolder.git, credentialsId: b09e12b5-99dc-4376-b2c5-a8920ac44060
+				
 				git checkout -b '${params.Branch}'
 				sh /var/lib/jenkins/script.sh "$WORKSPACE" "${folderpath}"
 				
