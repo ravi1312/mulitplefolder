@@ -16,10 +16,8 @@ pipeline{
 				//sh "git sparse-checkout list '${params.folderpath}'"
 				//sh "git status"
 				//sh "ls"
+
 				sh """
-				sh /var/lib/jenkins/multi-copy.sh "$WORKSPACE" "${folderpath}"
-				"""
-				/*sh """
 				echo "$folderpath"
 				
 				git checkout -b '${params.Branch}'
@@ -27,7 +25,7 @@ pipeline{
 				ls
 				git add .
 				git commit -m "commiting new branch"
-			*/
+			
 
 				"""
 			//	sh "git push origin https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git"
