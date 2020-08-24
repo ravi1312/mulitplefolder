@@ -1,8 +1,9 @@
 pipeline{
 	agent any
 	parameters {
-		string(defaultValue: "", description: 'Give the total path of the folder', name: 'folderpath')
+		text(defaultValue: "", description: 'Give the total path of the folder', name: 'folderpath')
 		string(defaultValue: "", description: 'Give the name of the branch', name: 'Branch')
+		
 	}
 	stages{
 		stage("build"){
