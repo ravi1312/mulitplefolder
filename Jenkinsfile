@@ -15,7 +15,6 @@ pipeline{
 				//sh "git sparse-checkout list '${params.folderpath}'"
 				//sh "git status"
 				//sh "ls"
-				sh "tree '${params.folderpath}'"
 
 				sh """
 				echo "$folderpath"
