@@ -1,0 +1,102 @@
+def Target_Path = "apple"
+pipeline {
+         agent any
+         parameters {
+                  choice(choices: ['BigD', 'Test', 'Prod'], description: 'Select Databricks environment', name: 'Environment')
+                  //string(name: 'Databricks_URL', description: 'Enter the Env URL eg: https://tfs.cloud.databricks.com')
+                  string(name: 'Git_Repo_Url', defaultValue: 'https://github.com/ravi1312/mulitplefolder.git', description: 'Enter the Git Repo URL')
+                  gitParameter branch: '', branchFilter: 'origin/(.*)', defaultValue: 'master', description: 'Select the branch', listSize: '5', name: 'Branches', quickFilterEnabled: false, selectedValue: 'NONE', sortMode: 'ASCENDING', tagFilter: '*', type: 'PT_BRANCH'
+                  string(name: 'Databricks_Token', description: 'Enter Databricks personal access token')
+                 // text(name: 'Source_Path', description: 'Enter the notebook location')
+                  //text(name: 'Target_Path', description: 'Enter the target path to copy notebook')
+                  extendedChoice defaultValue: '', description: '', descriptionPropertyValue: '', multiSelectDelimiter: ',', name: 'databricks', propertyFile: '/var/lib/jenkins/output1.txt', propertyKey: 'notebookcopy', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_CHECKBOX', visibleItemCount: 10
+                 // gitParameter branch: '', branchFilter: '.*', defaultValue: 'origin/master', description: '', name: 'Branches', quickFilterEnabled: false, selectedValue: 'NONE', sortMode: 'NONE', tagFilter: '*', type: 'PT_BRANCH'
+                  //choice(choices: ['Approved', 'Rejected'], description: 'We required approval from manager', name: 'Approval')
+                  
+         }
+         stages {
+                  stage('Databricks Copy file to target') {
+                           steps {
+                                    echo "$databricks"
+                                    echo "$Target_Path"
+                                    echo "just copying file from logging to copying"
+                                    echo "git branch: '${params.Branches}'"
+                                    sh "git status"
+                                    sh "git branch -a"
+                                    sh "ls -lrt"
+                                    sh "git ls-files --directory"
+                                    git branch: "${params.Branches}",
+                                    credentialsId:  'b09e12b5-99dc-4376-b2c5-a8920ac44060',
+                                    url: "${params.Git_Repo_Url}"
+                                    
+                                    sh """
+                                    sh /var/lib/jenkins/notebook.sh "${databricks}" "${Target_Path}" "${WORKSPACE}"
+                                    cd /var/lib/jenkins/demo/
+                                    printf '%s\n' */*/*/*/*/* > /var/lib/jenkins/test.txt
+                                    tr '\n' '+' < /var/lib/jenkins/test.txt > /var/lib/jenkins/test1.txt
+                                    
+                                    echo notebookcopy | cat - /var/lib/jenkins/test1.txt > temp && mv temp /var/lib/jenkins/test1.txt
+                                    
+                                    tr '\n' '=' < /var/lib/jenkins/test1.txt > /var/lib/jenkins/test.txt
+                                    
+                                    rm /var/lib/jenkins/test1.txt
+                                    sed 's/'+'/','/g' /var/lib/jenkins/test.txt > /var/lib/jenkins/test1.txt
+                                    
+                                    
+                                    echo "${params.databricks}"
+                                    
+                                    """                                 
+                           }
+                  }
+                  stage ("deploying on BigD"){
+                           steps{
+                                    script{
+                                             if (params.Environment == "BigD"){
+                                                      sh """
+                                                      sh /var/lib/jenkins/notebook.sh "${params.databricks}" "${Target_Path}"
+                                                      """
+                                             }
+                                    }
+                           }
+                  }
+                  stage('deploying on Test'){
+                           steps{
+                                    script{
+                                             if (params.Environment == "Test"){
+                                                      sh """
+                                                      echo "${params.databricks}"
+                                                      sh /var/lib/jenkins/notebook.sh "${params.databricks}" "${Target_Path}"
+                                                      """
+                                             }
+                                    }
+                           }
+                  }
+                  stage('deploying on prod'){
+                           steps{
+                                    script{
+                                             if (params.Environment == "Prod"){
+                                                      sh """
+                                                      sh /var/lib/jenkins/notebook.sh "${params.databricks}" "${Target_Path}"
+                                                      """
+                                             }
+                                    }
+                           }
+                  }
+                                             
+                                           
+                                             
+
+
+                  stage ('Deploying on Test') {
+                           steps{
+                                    echo "Deploying on Test"
+                           }
+                  }
+         }
+         post {
+                  always {
+                           cleanWs()
+                  }
+         } 
+         
+}
