@@ -11,7 +11,7 @@ pipeline {
         stage ("testing") {
             when {
                // Only say hello if a "greeting" is requested
-                expression { params.REQUESTED_ACTION == 'greeting' || 'silence' || 'abort' || 'and' }
+                expression { params.Mastercommitids == 'greeting' || 'silence' || 'abort' || 'and' }
             }
             steps {
                 script{
