@@ -15,7 +15,7 @@ pipeline {
             //}
             steps {
                 script{
-                    if ( params.REQUESTED_ACTION == 'greeting' ){
+                    if ( params.REQUESTED_ACTION == 'greeting' || 'silence'){
                         echo "hello"
                     }else {
                         sh "exit 1"
