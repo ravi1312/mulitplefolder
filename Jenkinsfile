@@ -16,8 +16,8 @@ pipeline {
             steps {
                 script{
                     echo "hello"
-                    sh "exit 1"
-                    currentBuild.result = 'FAILURE'
+                   // sh "exit 1"
+                    //currentBuild.result = 'FAILURE'
                 }
             }
         }
