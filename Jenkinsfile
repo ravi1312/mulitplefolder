@@ -17,7 +17,8 @@ pipeline {
                 script{
                     if ( params.REQUESTED_ACTION == 'greeting' ){
                         echo "hello"
-                    }
+                    }else {
+                        sh "exit 1"
                    // sh "exit 1"
                     //currentBuild.result = 'FAILURE'
                 }
