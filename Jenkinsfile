@@ -28,7 +28,7 @@ pipeline {
                         echo "hi"
                     }else if (params.Mastercommitids == 'silence') {
                         echo "good"
-                    }else if (params.Mastercommitids == 'silence') {
+                    }else if (params.Mastercommitids == 'and') {
                         echo "abcd"
                     }else if (params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and') {
                         //sh "exit 1"
