@@ -23,8 +23,9 @@ pipeline {
                         echo "good"
                     }else if (params.Mastercommitids != 'abort' && 'silence' && 'greeting') {
                         sh "exit 1"
+                        error ("this is not expected")
                     }else {
-                        //sh "exit 1"
+                        sh "exit 1"
                         error ("this is not expected")
                     }
                     
