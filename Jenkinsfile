@@ -15,13 +15,13 @@ pipeline {
             }
             steps {
                 script{
-                    if ( params.REQUESTED_ACTION == 'greeting'){
+                    if ( params.Mastercommitids == 'greeting'){
                         echo "hello"
-                    }else if (params.REQUESTED_ACTION == 'abort') {
+                    }else if (params.Mastercommitids == 'abort') {
                         echo "hi"
-                    }else if (params.REQUESTED_ACTION == 'silence') {
+                    }else if (params.Mastercommitids == 'silence') {
                         echo "good"
-                    }else if (params.REQUESTED_ACTION != 'abort' && 'silence' && 'greeting') {
+                    }else if (params.Mastercommitids != 'abort' && 'silence' && 'greeting') {
                         sh "exit 1"
                     }else {
                         sh "exit 1"
