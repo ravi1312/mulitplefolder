@@ -9,10 +9,10 @@ pipeline {
     }
     stages {
         stage ("testing") {
-           // when {
-                // Only say hello if a "greeting" is requested
-             //   expression { params.REQUESTED_ACTION == 'greeting' || 'silence' }
-            //}
+            when {
+                Only say hello if a "greeting" is requested
+                expression { params.REQUESTED_ACTION == 'greeting' || 'silence' || 'abort' || 'and' }
+            }
             steps {
                 script{
                     if ( params.REQUESTED_ACTION == 'greeting'){
