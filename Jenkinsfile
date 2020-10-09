@@ -9,16 +9,7 @@ pipeline {
 stages {
     stage ("Checkout Git Branch") {
         steps {
-            git branch: "${params.BranchName}",
-            credentialsId:  '1da8544d-51d7-479a-8f64-7832199228d7',
-            url: "${params.GitUrl}"
-            sh "ls -lat"
-            sh "git status"
-            sh "git branch -a" 
-            sh """
-            sh gitpush.sh "${params.Mastercommitids}" "${params.GitToken}"
-            """
-        }
+            echo "hello"
     }
   }
     post { 
