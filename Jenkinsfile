@@ -17,6 +17,8 @@ pipeline {
                 script{
                     if ( params.REQUESTED_ACTION == 'greeting' || 'silence'){
                         echo "hello"
+                    }else if (params.REQUESTED_ACTION == 'abort') {
+                        echo "hi"
                     }else {
                         sh "exit 1"
                     }// sh "exit 1"
