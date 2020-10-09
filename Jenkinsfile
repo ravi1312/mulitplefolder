@@ -22,7 +22,7 @@ pipeline {
                     }else if (params.REQUESTED_ACTION == 'silence') {
                         echo "good"
                     }else if (params.REQUESTED_ACTION != 'abort' && 'silence' && 'greeting') {
-                        echo "bad"
+                        sh "exit 1"
                     }else {
                         sh "exit 1"
                     }// sh "exit 1"
