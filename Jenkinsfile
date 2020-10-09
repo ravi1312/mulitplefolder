@@ -9,13 +9,15 @@ pipeline {
     }
     stages {
         stage ("testing") {
-            when {
+           // when {
                 // Only say hello if a "greeting" is requested
-                expression { params.REQUESTED_ACTION == 'greeting' || 'silence' }
-            }
+             //   expression { params.REQUESTED_ACTION == 'greeting' || 'silence' }
+            //}
             steps {
                 script{
-                    echo "hello"
+                    if ( params.REQUESTED_ACTION == 'greeting' ){
+                        echo "hello"
+                    }
                    // sh "exit 1"
                     //currentBuild.result = 'FAILURE'
                 }
