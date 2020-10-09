@@ -30,13 +30,13 @@ pipeline {
                         echo "good"
                     }else if (params.Mastercommitids == 'and') {
                         echo "abcd"
-                    }//else if (params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and') {
+                    }else if (params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and') {
                         //sh "exit 1"
                        // error ("this is not expected")
-                    else {
-                        sh "exit 1"
-                        error ("this is not expected")
-                    }
+                    }//else {
+                       // sh "exit 1"
+                        //error ("this is not expected")
+                    //}
                     
                     // sh "exit 1"
                     //currentBuild.result = 'FAILURE'
