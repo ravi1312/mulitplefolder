@@ -15,11 +15,11 @@ pipeline {
             //}
             steps {
                 script{
-                    if ( params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and' ) {
-                        error ("invalid paramter choice")
-                    }else {
-                        echo "abcd forever"
-                    }
+                    //if ( params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and' ) {
+                      //  error ("invalid paramter choice")
+                    //}else {
+                      //  echo "abcd forever"
+                    //}
                     
                     
                     if ( params.Mastercommitids == 'greeting'){
@@ -28,7 +28,9 @@ pipeline {
                         echo "hi"
                     }else if (params.Mastercommitids == 'silence') {
                         echo "good"
-                    }else if (params.Mastercommitids != 'abort' && 'silence' && 'greeting') {
+                    }else if (params.Mastercommitids == 'silence') {
+                        echo "abcd"
+                    }else if (params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and') {
                         //sh "exit 1"
                         error ("this is not expected")
                     }else {
