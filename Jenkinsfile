@@ -25,6 +25,7 @@ pipeline {
                         sh "exit 1"
                     }else {
                         sh "exit 1"
+                        error ("this is not expected")
                     }
                     
                     // sh "exit 1"
