@@ -15,10 +15,12 @@ pipeline {
             //}
             steps {
                 script{
-                    if ( params.REQUESTED_ACTION == 'greeting' || 'silence'){
+                    if ( params.REQUESTED_ACTION == 'greeting'){
                         echo "hello"
                     }else if (params.REQUESTED_ACTION == 'abort') {
                         echo "hi"
+                    }else if (params.REQUESTED_ACTION == 'silence') {
+                        echo "good"
                     }else {
                         sh "exit 1"
                     }// sh "exit 1"
