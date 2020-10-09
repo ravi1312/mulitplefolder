@@ -18,6 +18,7 @@ pipeline {
                     echo "hello"
                     sh "exit 1"
                     currentBuild.result = 'FAILURE'
+                }
             }
         }
     }
