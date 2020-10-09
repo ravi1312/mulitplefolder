@@ -14,8 +14,10 @@ pipeline {
                 expression { params.REQUESTED_ACTION == 'greeting' || 'silence' || 'abort'}
             }
             steps {
-                echo "hello"
-                currentBuild.result == 'FAILURE'
+                script{
+                    echo "hello"
+                    sh "exit 1"
+                    currentBuild.result = 'FAILURE'
             }
         }
     }
