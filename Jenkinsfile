@@ -9,12 +9,19 @@ pipeline {
     }
     stages {
         stage ("testing") {
-            when {
+            //when {
                // Only say hello if a "greeting" is requested
-                expression { params.Mastercommitids == 'greeting' || 'silence' || 'abort' || 'and' }
-            }
+              //  expression { params.Mastercommitids == 'greeting' || 'silence' || 'abort' || 'and' }
+            //}
             steps {
                 script{
+                    if ( params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and' ) {
+                        error ("invalid paramter choice")
+                    }else {
+                        echo "abcd forever"
+                    }
+                    
+                    
                     if ( params.Mastercommitids == 'greeting'){
                         echo "hello"
                     }else if (params.Mastercommitids == 'abort') {
