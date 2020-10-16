@@ -17,6 +17,7 @@ pipeline {
                         echo "Hello nice to meet you."
                     }else if (params.CHOICES == 'two'){
                         echo "hey here!"
+                    }
                 }
             }
         }
