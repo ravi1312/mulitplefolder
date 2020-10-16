@@ -20,13 +20,31 @@ pipeline {
             //}
             steps {
                 script{
-                    env.RELEASE_SCOPE = input message: 'User input required', ok: 'Release!',
-                        parameters {
-                            //string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
-                            choice(name: 'CHOICES', choices: ['one', 'two'], description: '')
-                        }
-                    echo "hi here it is ${params.choice}"
-                    echo "hi ${params.CHOICES}"
+                    def inputConfig
+                    def inputTest
+
+                    // Get the input
+                    def userInput = input(
+                            id: 'userInput', message: 'Enter path of test reports:?',
+                            parameters: [
+
+                                    string(defaultValue: 'None',
+                                            description: 'Path of config file',
+                                            name: 'Config'),
+                                    string(defaultValue: 'None',
+                                            description: 'Test Info file',
+                                            name: 'Test'),
+                            ])
+
+                    // Save to variables. Default to empty string if not found.
+                    inputConfig = userInput.Config?:''
+                    inputTest = userInput.Test?:''
+
+                    // Echo to console
+                    echo("IQA Sheet Path: ${inputConfig}")
+                    echo("Test Info file path: ${inputTest}")
+                    //echo "hi here it is ${params.choice}"
+                    //echo "hi ${params.CHOICES}"
                     sh """
                     sh /var/lib/jenkins/script.sh "${params.choice}"
                     """
