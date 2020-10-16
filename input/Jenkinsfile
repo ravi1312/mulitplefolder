@@ -36,9 +36,6 @@ pipeline {
 
                     // Echo to console
                     echo("${inputConfig}")
-                    if (inputConfig == 'approve'){
-                        echo "hello"
-                    }
                 }
             }
         }
