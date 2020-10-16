@@ -19,7 +19,8 @@ pipeline {
                 script{
                     if(env.choice == 'one'){
                         echo "Hello nice to meet you."
-                    }else if (env.test == 'two'){
+                    }
+                    if(env.test == 'two'){
                         echo "hey here!"
                     }
                 }
