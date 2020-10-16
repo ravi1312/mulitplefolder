@@ -29,8 +29,10 @@ pipeline {
         stage('test'){
             environment{
                 sample = echo "${params.CHOICES}"
+            }
             steps{
                 script{
+                    echo "$sample"
                     if(params.CHOICES == 'one'){
                         echo "hi"
                     }
