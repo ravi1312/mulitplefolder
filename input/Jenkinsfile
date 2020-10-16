@@ -17,10 +17,10 @@ pipeline {
             }
             steps {
                 script{
-                    if(env.choice == 'one'){
+                    if(params.CHOICES == 'one'){
                         echo "Hello nice to meet you."
                     }
-                    if(env.test == 'two'){
+                    if(params.CHOICES == 'two'){
                         echo "hey here!"
                     }
                 }
