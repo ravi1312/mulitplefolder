@@ -21,7 +21,7 @@ pipeline {
             steps {
                 script{
                     sh """
-                    sh /var/lib/jenkins/script.sh "${params.CHOICES}"
+                    sh /var/lib/jenkins/script.sh "${params.choice}"
                     """
                     if(env.choice == 'one'){
                         echo "Hello nice to meet you."
