@@ -19,5 +19,14 @@ pipeline {
                 }
             }
         }
+        stage('test'){
+            steps{
+                script{
+                    if(params.CHOICES == 'one'){
+                        echo "hi"
+                    }
+                }
+            }
+        }
     }
 }
