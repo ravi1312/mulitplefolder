@@ -31,7 +31,7 @@ pipeline {
             }
             steps{
                 script{
-                    echo "$CHOICES"
+                    echo "${CHOICES}"
                     if(params.CHOICES == 'one'){
                         echo "hi"
                     }
