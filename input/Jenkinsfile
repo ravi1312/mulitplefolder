@@ -2,6 +2,10 @@ pipeline {
     agent any
     stages {
         stage('Example') {
+            environment {
+                choice = 'one'
+                test = 'two'
+            }
             input {
                 message "Should we continue?"
                 ok "Yes, we should."
@@ -13,9 +17,9 @@ pipeline {
             }
             steps {
                 script{
-                    if(params.CHOICES == 'one'){
+                    if(env.choice == 'one'){
                         echo "Hello nice to meet you."
-                    }else if (params.CHOICES == 'two'){
+                    }else if (env.choice == 'two'){
                         echo "hey here!"
                     }
                 }
