@@ -27,7 +27,7 @@ pipeline {
         }
         stage('test'){
             environment{
-                sample = 'testing'
+                sample = params.CHOICES
             }
             steps{
                 script{
