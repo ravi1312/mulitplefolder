@@ -25,7 +25,7 @@ pipeline {
                             id: 'userInput', message: 'Enter path of test reports:?',
                             parameters: [
 
-                                    choicec(choices: ['one', 'two'],
+                                    choice(choices: ['one', 'two'],
                                             description: 'Path of config file',
                                             name: 'Config'),
                             ])
