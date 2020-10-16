@@ -21,27 +21,27 @@ pipeline {
             steps {
                 script{
                     def inputConfig
-                   // def inputTest
+                    //def inputTest
 
                     // Get the input
                     def userInput = input(
                             id: 'userInput', message: 'Enter path of test reports:?',
                             parameters: [
-                                choice(choices: ['approve', 'reject'],
-                                       description: 'Path of config file',
-                                       name: 'Config'),
+
+                                    choice(choices: ['approve', 'reject'],
+                                            description: 'Path of config file',
+                                            name: 'Config'),
+                                    string(defaultValue: 'None',
+                                            description: 'Test Info file',
+                                            name: 'Test'),
                             ])
 
                     // Save to variables. Default to empty string if not found.
                     inputConfig = userInput.Config?:''
-                   // echo("${inputConfig}")
-                    //inputTest = userInput.Test?:''
+                   // inputTest = userInput.Test?:''
 
                     // Echo to console
                     echo("IQA Sheet Path: ${inputConfig}")
-                    //echo("Test Info file path: ${inputTest}")
-                    //echo "hi here it is ${params.choice}"
-                    //echo "hi ${params.CHOICES}"
                     if(env.choice == 'one'){
                         echo "Hello nice to meet you."
                     }else {
