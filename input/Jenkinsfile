@@ -36,9 +36,9 @@ pipeline {
 
                     // Echo to console
                     echo("${inputConfig}")
-                    sh """
-                    sh /var/lib/jenkins/script.sh ${inputConfig}
-                    """
+                    if (echo("${inputConfig}") == 'approve'){
+                        echo "hello"
+                    }
                 }
             }
         }
