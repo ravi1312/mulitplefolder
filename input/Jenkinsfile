@@ -17,7 +17,6 @@ pipeline {
             }
             steps {
                 script{
-                    echo "${params.CHOICES}"
                     if(env.choice == 'one'){
                         echo "Hello nice to meet you."
                     }else {
@@ -28,7 +27,7 @@ pipeline {
         }
         stage('test'){
             environment{
-                sample = echo "${params.CHOICES}"
+                sample = "${params.CHOICES}"
             }
             steps{
                 script{
