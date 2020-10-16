@@ -15,7 +15,8 @@ pipeline {
                 script{
                     if(params.CHOICES == 'one'){
                         echo "Hello nice to meet you."
-                    }
+                    }else if (params.CHOICES == 'two'){
+                        echo "hey here!"
                 }
             }
         }
