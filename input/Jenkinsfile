@@ -30,13 +30,11 @@ pipeline {
                                 choice(choices: ['approve', 'reject'],
                                        description: 'Path of config file',
                                        name: 'Config'),
-                                string(defaultValue: 'None',
-                                       description: 'Test Info file',
-                                       name: 'Test'),
                             ])
 
                     // Save to variables. Default to empty string if not found.
                     inputConfig = userInput.Config?:''
+                    echo "${inputConfig}"
                     //inputTest = userInput.Test?:''
 
                     // Echo to console
