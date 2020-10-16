@@ -17,16 +17,18 @@ pipeline {
             }
             steps {
                 script{
-                    if(params.CHOICES == 'one'){
+                    
+                    if(env.choice == 'one'){
                         echo "Hello nice to meet you."
-                    }
-                    if(params.CHOICES == 'two'){
+                    }else {
                         echo "hey here!"
                     }
                 }
             }
         }
         stage('test'){
+            environment{
+                sample = echo "${params.CHOICES}"
             steps{
                 script{
                     if(params.CHOICES == 'one'){
