@@ -37,7 +37,7 @@ pipeline {
                     // Echo to console
                     echo("${inputConfig}")
                     sh """
-                    sh /var/lib/jenkins/script.sh "${inputConfig}"
+                    sh /var/lib/jenkins/script.sh ${inputConfig}
                     """
                 }
             }
