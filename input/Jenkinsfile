@@ -20,6 +20,7 @@ pipeline {
             }
             steps {
                 script{
+                    echo "hi here it is ${params.choice]"
                     sh """
                     sh /var/lib/jenkins/script.sh "${params.choice}"
                     """
