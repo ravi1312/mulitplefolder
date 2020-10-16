@@ -27,7 +27,12 @@ pipeline {
                     def userInput = input(
                             id: 'userInput', message: 'Enter path of test reports:?',
                             parameters: [
-                                choice(name: 'CHOICES', choices: ['one', 'two'], description: '')
+                                string(defaultValue: 'None',
+                                       description: 'Path of config file',
+                                       name: 'Config'),
+                                string(defaultValue: 'None',
+                                       description: 'Test Info file',
+                                       name: 'Test'),
                             ])
 
                     // Save to variables. Default to empty string if not found.
