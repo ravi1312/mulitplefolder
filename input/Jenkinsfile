@@ -31,7 +31,8 @@ pipeline {
             }
             steps{
                 script{
-                    def testing = params.CHOICES
+                    testing = "${params.CHOICES}"
+                    
                     echo "${testing}"
                     echo "${sample}"
                     if(params.CHOICES == 'one'){
