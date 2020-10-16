@@ -42,9 +42,6 @@ pipeline {
                     //echo("Test Info file path: ${inputTest}")
                     //echo "hi here it is ${params.choice}"
                     //echo "hi ${params.CHOICES}"
-                    sh """
-                    #sh /var/lib/jenkins/script.sh "${inputConfig}"
-                    """
                     if(env.choice == 'one'){
                         echo "Hello nice to meet you."
                     }else {
