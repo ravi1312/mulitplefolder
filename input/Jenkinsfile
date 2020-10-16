@@ -17,6 +17,9 @@ pipeline {
             }
             steps {
                 script{
+                    sh """
+                    sh $WORKSPACE/input/script.sh "${params.CHOICES}"
+                    """
                     if(env.choice == 'one'){
                         echo "Hello nice to meet you."
                     }else {
