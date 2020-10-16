@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    parameters{
+        choice(name: 'choice', choices: ['one', 'two'], description: '')
+    }
     stages {
         stage('Example') {
             environment {
@@ -18,7 +21,7 @@ pipeline {
             steps {
                 script{
                     sh """
-                    sh $WORKSPACE/input/script.sh "${params.CHOICES}"
+                    sh $WORKSPACE/input/script.sh "${params.choice}"
                     """
                     if(env.choice == 'one'){
                         echo "Hello nice to meet you."
