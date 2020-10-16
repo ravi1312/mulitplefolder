@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    parameters{
-        choice(name: 'choice', choices: ['one', 'two'], description: '')
-    }
     stages {
         stage('Example') {
             environment {
@@ -31,9 +28,6 @@ pipeline {
                                     choice(choices: ['approve', 'reject'],
                                             description: 'Path of config file',
                                             name: 'Config'),
-                                    string(defaultValue: 'None',
-                                            description: 'Test Info file',
-                                            name: 'Test'),
                             ])
 
                     // Save to variables. Default to empty string if not found.
@@ -42,25 +36,7 @@ pipeline {
 
                     // Echo to console
                     echo("${inputConfig}")
-                    if(env.choice == 'one'){
-                        echo "Hello nice to meet you."
-                    }else {
-                        echo "hey here!"
-                    }
-                }
-            }
-        }
-        stage('test'){
-            environment{
-                sample = 'abcd'
-            }
-            steps{
-                script{
-                    testing = "${params.CHOICES}"
-                    
-                    echo "${testing}"
-                    echo "${sample}"
-                    if(params.CHOICES == 'one'){
+                    if(${inputConfig} == 'approve'){
                         echo "hi"
                     }
                 }
