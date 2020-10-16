@@ -25,14 +25,17 @@ pipeline {
                             id: 'userInput', message: 'Enter path of test reports:?',
                             parameters: [
 
-                                    choice(choices: ['approve', 'reject'],
+                                    string(choices: ['one', 'two'],
                                             description: 'Path of config file',
                                             name: 'Config'),
+                                    string(defaultValue: 'None',
+                                            description: 'Test Info file',
+                                            name: 'Test'),
                             ])
 
                     // Save to variables. Default to empty string if not found.
                     inputConfig = userInput.Config?:''
-                   // inputTest = userInput.Test?:''
+                    inputTest = userInput.Test?:''
 
                     // Echo to console
                     echo("IQA Sheet Path: ${inputConfig}")
