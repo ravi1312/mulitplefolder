@@ -13,7 +13,7 @@ pipeline {
                 script{
                     try {
                         sh """
-                        cd $workspace
+                        cd orkspace
                         ls -lrt
                         """
                     } catch (Exception e) {
