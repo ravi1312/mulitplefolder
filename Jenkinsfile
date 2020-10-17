@@ -25,7 +25,7 @@ pipeline {
                     //}else if (params.Mastercommitids == 'silence') {
                   //      echo "good"
                    // }else if (params.Mastercommitids == 'and') {
-                        echo "abcd"
+                       // echo "abcd"
                    // }else if (params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and') {
                         //sh "exit 1"
                      //   error ("this is not expected")
