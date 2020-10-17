@@ -16,7 +16,7 @@ pipeline {
                             error('wrong input')
                         }
                     } catch (err) {
-                        echo err.getMessage()
+                       // echo err.getMessage()
                         //sh 'Handle the exception!'
                     }
                 }
