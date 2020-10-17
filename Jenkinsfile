@@ -13,9 +13,7 @@ pipeline {
                 script{
                     try {
                         if (params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and') {
-                            error('wrong input')
-                        }else {
-                            echo "hello"
+                           // error('wrong input')
                         }
                     } catch (Exception err) {
                        // echo err.getMessage()
