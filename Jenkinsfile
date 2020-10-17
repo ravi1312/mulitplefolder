@@ -25,6 +25,13 @@ pipeline {
                 }
             }
         }
+        stage('sample'){
+            steps{
+                script{
+                    echo "hello"
+                }
+            }
+        }
     }
 }
     
