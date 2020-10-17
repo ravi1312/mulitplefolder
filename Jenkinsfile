@@ -5,6 +5,7 @@ pipeline {
         string(name: 'BranchName', defaultValue: '', description: 'Mention the Specified Branch Name')
         string(name: 'GitToken', defaultValue: '', description: 'Input your Github developers Token')
         choice(choices: ['greeting' , 'silence' , 'abort' , 'and' , 'hello'], description: '', name: 'REQUESTED_ACTION')
+        choice(choices: ['nonprod', 'prod'], description: '', name: 'testing')
         extendedChoice defaultValue: '', description: '', descriptionPropertyValue: '', multiSelectDelimiter: ',', name: 'Mastercommitids', propertyFile: '$WORKSPACE/file.txt', propertyKey: 'notebookcopy', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_CHECKBOX', visibleItemCount: 10
     }
     stages {
@@ -13,7 +14,7 @@ pipeline {
                 script{
                     try {
                         sh """
-                        sh /var/lib/jenkins/script.sh "${params.REQUESTED_ACTION}"
+                        sh /var/lib/jenkins/script.sh "${params.REQUESTED_ACTION}" "${params.testing}"
                         """
                        // if (params.REQUESTED_ACTION != 'abort' && 'silence' && 'greeting' && 'and') {
                          //   error('wrong')
