@@ -14,6 +14,8 @@ pipeline {
                     try {
                         if (params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and') {
                             error('wrong input')
+                        }else {
+                            echo "hi"
                         }
                     } catch (err) {
                         print err
