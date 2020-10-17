@@ -17,7 +17,8 @@ pipeline {
                         }
                     } catch (Exception err) {
                        // echo err.getMessage()
-                        sh 'Handle the exception!'
+                        //sh 'Handle the exception!'
+                        error ('wrong input')
                     }
                 }
             }
