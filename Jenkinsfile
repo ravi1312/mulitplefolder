@@ -9,19 +9,16 @@ pipeline {
     }
     stages {
         stage ("testing") {
-            //when {
-               // Only say hello if a "greeting" is requested
-              //  expression { params.Mastercommitids == 'greeting' || 'silence' || 'abort' || 'and' }
-            //}
             steps {
                 script{
-                    //if ( params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and' ) {
-                      //  error ("invalid paramter choice")
-                    //}else {
-                      //  echo "abcd forever"
-                    //}
-                    
-                    
+                    try {
+                        sh """
+                        cd $WORKSPACE
+                        ls -lrt
+                        """
+                    } catch (Exception e) {
+                        sh 'Handle the exception!'
+                    }
                     if ( params.Mastercommitids == 'greeting'){
                         echo "hello"
                     }else if (params.Mastercommitids == 'abort') {
@@ -37,9 +34,6 @@ pipeline {
                        // sh "exit 1"
                         //error ("this is not expected")
                     //}
-                    
-                    // sh "exit 1"
-                    //currentBuild.result = 'FAILURE'
                 }
             }
         }
