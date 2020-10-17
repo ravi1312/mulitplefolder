@@ -36,6 +36,12 @@ pipeline {
                 }
             }
         }
+        try {
+            stage('failFirst') {
+                error('Fail')    
+            }
+        } catch (Exception ex) {
+    }
     }
 }
     
