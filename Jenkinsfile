@@ -1,9 +1,9 @@
 pipeline {
     agent any
     parameters{
-        string(name: 'GitUrl', defaultValue: 'https://github.com/thermofisher/tfsds-Databricks-Notebook-Deploy-POC.git', description: 'Give the url to the GitHub')
-        string(name: 'BranchName', defaultValue: 'release-test1', description: 'Mention the Specified Branch Name')
-        string(name: 'GitToken', defaultValue: 'd66c6997a09a1230ec344713dc1db8292105306e', description: 'Input your Github developers Token')
+        string(name: 'GitUrl', defaultValue: '', description: 'Give the url to the GitHub')
+        string(name: 'BranchName', defaultValue: '', description: 'Mention the Specified Branch Name')
+        string(name: 'GitToken', defaultValue: '', description: 'Input your Github developers Token')
         choice(choices: ['greeting' , 'silence' , 'abort' , 'and'], description: '', name: 'REQUESTED_ACTION')
         extendedChoice defaultValue: '', description: '', descriptionPropertyValue: '', multiSelectDelimiter: ',', name: 'Mastercommitids', propertyFile: '$WORKSPACE/file.txt', propertyKey: 'notebookcopy', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_CHECKBOX', visibleItemCount: 10
     }
