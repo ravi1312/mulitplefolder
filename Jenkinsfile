@@ -5,7 +5,7 @@ pipeline {
         string(name: 'BranchName', defaultValue: '', description: 'Mention the Specified Branch Name')
         string(name: 'GitToken', defaultValue: '', description: 'Input your Github developers Token')
         choice(choices: ['greeting' , 'silence' , 'abort' , 'and' , 'hello'], description: '', name: 'REQUESTED_ACTION')
-        choice(choices: ['nonprod', 'prod'], description: '', name: 'testing')
+        choice(choices: ['nonprod', 'prod', 'test'], description: '', name: 'testing')
         extendedChoice defaultValue: '', description: '', descriptionPropertyValue: '', multiSelectDelimiter: ',', name: 'Mastercommitids', propertyFile: '$WORKSPACE/file.txt', propertyKey: 'notebookcopy', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_CHECKBOX', visibleItemCount: 10
     }
     stages {
