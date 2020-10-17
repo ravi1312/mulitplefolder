@@ -25,6 +25,8 @@ pipeline {
                         //sh 'Handle the exception!'
                         error ('wrong input')
                     }
+                    echo "hey there! welcome all"
+                    echo "hey boss! good evening"
                 }
             }
         }
