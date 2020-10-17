@@ -13,35 +13,14 @@ pipeline {
                 script{
                     try {
                         if (params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and') {
-                        //sh "exit 1"
+                            echo "hi"
                         }
                     } catch (Exception e) {
                         sh 'Handle the exception!'
                     }
-                   // if ( params.Mastercommitids == 'greeting'){
-                      //  echo "hello"
-                    //}else if (params.Mastercommitids == 'abort') {
-                      //  echo "hi"
-                    //}else if (params.Mastercommitids == 'silence') {
-                  //      echo "good"
-                   // }else if (params.Mastercommitids == 'and') {
-                       // echo "abcd"
-                   // }else if (params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and') {
-                        //sh "exit 1"
-                     //   error ("this is not expected")
-                    //}//else {
-                       // sh "exit 1"
-                        //error ("this is not expected")
-                    //}
                 }
             }
         }
-        try {
-            stage('failFirst') {
-                error('Fail')    
-            }
-        } catch (Exception ex) {
-    }
     }
 }
     
