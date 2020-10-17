@@ -19,10 +19,10 @@ pipeline {
                        // if (params.REQUESTED_ACTION != 'abort' && 'silence' && 'greeting' && 'and') {
                          //   error('wrong')
                         //}
-                    } catch (err) {
-                        print err
+                    } catch (Exception e) {
+                        //print err
                         //currentBuild.result = 'FAILURE'
-                        //sh 'Handle the exception!'
+                        sh 'Handle the exception!'
                        // error ('wrong input')
                     }
                 }
