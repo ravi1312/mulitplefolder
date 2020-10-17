@@ -13,7 +13,7 @@ pipeline {
                 script{
                     try {
                         if (params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and') {
-                           // error('wrong input')
+                            error('wrong input')
                         }
                     } catch (err) {
                         print err
