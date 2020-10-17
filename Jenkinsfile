@@ -13,7 +13,7 @@ pipeline {
                 script{
                     try {
                         if (params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and') {
-                            echo "hi"
+                            error('wrong input')
                         }
                     } catch (Exception e) {
                         sh 'Handle the exception!'
