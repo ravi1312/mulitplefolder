@@ -15,9 +15,9 @@ pipeline {
                         if (params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and') {
                             error('wrong input')
                         }
-                    } catch (err) {
+                    } catch (Exception err) {
                        // echo err.getMessage()
-                        //sh 'Handle the exception!'
+                        sh 'Handle the exception!'
                     }
                 }
             }
