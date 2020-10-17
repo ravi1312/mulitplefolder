@@ -18,18 +18,18 @@ pipeline {
                     } catch (Exception e) {
                         sh 'Handle the exception!'
                     }
-                    if ( params.Mastercommitids == 'greeting'){
-                        echo "hello"
-                    }else if (params.Mastercommitids == 'abort') {
-                        echo "hi"
-                    }else if (params.Mastercommitids == 'silence') {
-                        echo "good"
-                    }else if (params.Mastercommitids == 'and') {
+                   // if ( params.Mastercommitids == 'greeting'){
+                      //  echo "hello"
+                    //}else if (params.Mastercommitids == 'abort') {
+                      //  echo "hi"
+                    //}else if (params.Mastercommitids == 'silence') {
+                  //      echo "good"
+                   // }else if (params.Mastercommitids == 'and') {
                         echo "abcd"
-                    }else if (params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and') {
+                   // }else if (params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and') {
                         //sh "exit 1"
-                        error ("this is not expected")
-                    }//else {
+                     //   error ("this is not expected")
+                    //}//else {
                        // sh "exit 1"
                         //error ("this is not expected")
                     //}
