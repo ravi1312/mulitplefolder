@@ -13,7 +13,7 @@ pipeline {
                 script{
                     try {
                         sh """
-                        cd $WORKSPACE
+                        cd $workspace
                         ls -lrt
                         """
                     } catch (Exception e) {
