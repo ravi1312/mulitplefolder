@@ -13,9 +13,9 @@ pipeline {
                 script{
                     try {
                         if (params.REQUESTED_ACTION != 'abort' && 'silence' && 'greeting' && 'and') {
-                            
+                            error('wrong')
                         }
-                    } catch (err) {
+                    } catch (Exception e) {
                         print err
                         //currentBuild.result = 'FAILURE'
                         //sh 'Handle the exception!'
