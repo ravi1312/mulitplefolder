@@ -17,7 +17,7 @@ pipeline {
                         }
                     } catch (err) {
                         print err
-                        currentBuild.result = 'FAILURE'
+                        //currentBuild.result = 'FAILURE'
                         //sh 'Handle the exception!'
                        // error ('wrong input')
                     }
