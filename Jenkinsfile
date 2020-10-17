@@ -13,7 +13,7 @@ pipeline {
                 script{
                     try {
                         if (params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and') {
-                            echo "gd mrg"
+                           // echo "gd mrg"
                         }
                     } catch (Exception e) {
                         print err
