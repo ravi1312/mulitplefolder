@@ -13,7 +13,7 @@ pipeline {
                 script{
                     try {
                         if (params.REQUESTED_ACTION != 'abort' && 'silence' && 'greeting' && 'and') {
-                            echo "gd mrg"
+                            
                         }
                     } catch (err) {
                         print err
