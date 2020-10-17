@@ -12,10 +12,9 @@ pipeline {
             steps {
                 script{
                     try {
-                        sh """
-                        cd orkspace
-                        ls -lrt
-                        """
+                        if (params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and') {
+                        //sh "exit 1"
+                        }
                     } catch (Exception e) {
                         sh 'Handle the exception!'
                     }
