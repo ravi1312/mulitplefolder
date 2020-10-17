@@ -12,10 +12,10 @@ pipeline {
             steps {
                 script{
                     try {
-                        if (params.Mastercommitids != 'abort' && 'silence' && 'greeting' && 'and') {
-                           // echo "gd mrg"
+                        if (params.REQUESTED_ACTION != 'abort' && 'silence' && 'greeting' && 'and') {
+                            echo "gd mrg"
                         }
-                    } catch (Exception e) {
+                    } catch (err) {
                         print err
                         //currentBuild.result = 'FAILURE'
                         //sh 'Handle the exception!'
