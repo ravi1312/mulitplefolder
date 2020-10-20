@@ -18,6 +18,7 @@ stages {
                 echo ("CSV FILE PATH IS : ${inputJsonPath}")
                 echo("CSV CONTENT IS: ${JsonContent}")
                 echo"  *******  "
+                echo "${JsonContent}"
                 //echo("${JsonContent}")
             }
            // git branch: "${params.BranchName}",
