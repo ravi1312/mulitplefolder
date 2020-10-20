@@ -15,7 +15,7 @@ stages {
                 def csvContent = readFile "${inputCSVPath}"
                 echo ("CSV FILE PATH IS : ${inputCSVPath}")
                 echo("CSV CONTENT IS: ${csvContent}")
-            
+            }
            // git branch: "${params.BranchName}",
        //     credentialsId:  '1da8544d-51d7-479a-8f64-7832199228d7',
          //   url: "${params.GitUrl}"
