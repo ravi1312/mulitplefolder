@@ -10,16 +10,21 @@ pipeline {
 stages {
     stage ("Checkout Git Branch") {
         steps {
+            script{
+                def inputCSVPath = input message: 'Upload file', parameters: [file(name: 'Test.csv', description: 'Upload only CSV file')]
+                def csvContent = readFile "${inputCSVPath}"
+                echo ("CSV FILE PATH IS : ${inputCSVPath}")
+                echo("CSV CONTENT IS: ${csvContent}")
             
-            git branch: "${params.BranchName}",
-            credentialsId:  '1da8544d-51d7-479a-8f64-7832199228d7',
-            url: "${params.GitUrl}"
-            sh "ls -lat"
-            sh "git status"
-            sh "git branch -a" 
-            sh """
-            sh gitpush.sh "${params.Mastercommitids}" "${params.GitToken}"
-            """
+           // git branch: "${params.BranchName}",
+       //     credentialsId:  '1da8544d-51d7-479a-8f64-7832199228d7',
+         //   url: "${params.GitUrl}"
+ //           sh "ls -lat"
+   //         sh "git status"
+     //       sh "git branch -a" 
+       //     sh """
+         //   sh gitpush.sh "${params.Mastercommitids}" "${params.GitToken}"
+          //  """
         }
     }
   }
