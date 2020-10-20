@@ -13,7 +13,7 @@ stages {
             script{
                 //echo "${params.}"
                 echo "input for .json file"
-                def inputJsonPath = input message: 'Upload file', parameters: [file(name: '', description: 'Upload only CSV file')]
+                def inputJsonPath = input message: 'Upload file', parameters: [file(name: 'test.csv', description: 'Upload only CSV file')]
                 def JsonContent = readFile "${inputJsonPath}"
                 echo ("CSV FILE PATH IS : ${inputJsonPath}")
                 echo("CSV CONTENT IS: ${JsonContent}")
