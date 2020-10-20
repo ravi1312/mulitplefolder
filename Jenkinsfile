@@ -11,11 +11,14 @@ stages {
     stage ("Checkout Git Branch") {
         steps {
             script{
+                //echo "${params.}"
                 echo "input for .json file"
-                def inputCSVPath = input message: 'Upload file', parameters: [file(name: 'Test.csv', description: 'Upload only CSV file')]
-                def csvContent = readFile "${inputCSVPath}"
-                echo ("CSV FILE PATH IS : ${inputCSVPath}")
-                echo("CSV CONTENT IS: ${csvContent}")
+                def inputJsonPath = input message: 'Upload file', parameters: [file(name: '', description: 'Upload only CSV file')]
+                def JsonContent = readFile "${inputJsonPath}"
+                echo ("CSV FILE PATH IS : ${inputJsonPath}")
+                echo("CSV CONTENT IS: ${JsonContent}")
+                echo"  *******  "
+                echo("${JsonContent}")
             }
            // git branch: "${params.BranchName}",
        //     credentialsId:  '1da8544d-51d7-479a-8f64-7832199228d7',
