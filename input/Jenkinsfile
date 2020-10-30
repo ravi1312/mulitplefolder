@@ -17,7 +17,7 @@ pipeline {
         stage('build') {
             steps{
                 script{
-                    def someGroovyVar = echo '\033[1;30mHello world'
+                    def someGroovyVar = echo '\033[1;30mHello world\033[0m'
                     withEnv(['VAR1=VALUE ONE',
                              "VAR2=${someGroovyVar}"
                             ]) {
