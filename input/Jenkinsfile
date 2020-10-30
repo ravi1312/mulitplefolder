@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo '\033[1;30mHello \033[0mcolorful world!\033[0m'
+                echo '\033[1;30mHello \033[0mcolorful world!'
             }
         }
         stage('Example') {
