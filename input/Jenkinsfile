@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script{
                     sh """
-                    sh $WORKSPACE/input/script.sh
+                    sh /var/lib/jenkins/input.sh
                     """
                     echo "this is ${bold}bold${normal} but this isn't"
                     def USER_INPUT = input(
