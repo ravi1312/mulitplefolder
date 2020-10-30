@@ -13,11 +13,9 @@ pipeline {
             //}
             steps {
                 script{
-                    ansiColor('xterm'){
-                        environment{
-                            table = 'testing'
-                        }
-                    }
+                    sh """
+                    sh /var/lib/jenkins/input.sh
+                    """
                     echo "${table}"
                     def USER_INPUT = input(
                     message: 'User input required - Some Yes or No question?',
