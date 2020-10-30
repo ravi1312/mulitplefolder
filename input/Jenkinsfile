@@ -51,7 +51,7 @@ pipeline {
                             [$class: 'ChoiceParameterDefinition',
                              choices: ['no','yes'].join('\n'),
                              name: 'input',
-                             description: "Menu - select box option"]
+                             description: "Menu - select box option ${result}"]
                         
                     ])
                     echo "The answer is: ${USER_INPUT}"
