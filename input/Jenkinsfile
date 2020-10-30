@@ -3,8 +3,6 @@ pipeline {
     stages {
         stage('Example') {
             environment {
-                bold=$(tput bold)
-                normal=$(tput sgr0)
             }
            // input {
              //   message "Should we continue?"
@@ -17,6 +15,9 @@ pipeline {
             //}
             steps {
                 script{
+                    sh """
+                    sh $WORKSPACE/input/script.sh
+                    """
                     echo "this is ${bold}bold${normal} but this isn't"
                     def USER_INPUT = input(
                     message: 'User input required - Some Yes or No question?',
