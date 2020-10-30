@@ -13,9 +13,9 @@ pipeline {
             //}
             steps {
                 script{
-                    sh """
-                    sh /var/lib/jenkins/input.sh
-                    """
+                    ansiColor('xterm'){
+                        echo "hello world"
+                    }
                     echo "this is ${bold}bold${normal} but this isn't"
                     def USER_INPUT = input(
                     message: 'User input required - Some Yes or No question?',
