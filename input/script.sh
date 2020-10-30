@@ -1,5 +1,4 @@
-choice=$1
-if [ $choice == 'one' ]
-then
-    echo "hello"
-fi
+bold=$(tput bold)
+normal=$(tput sgr0)
+
+echo "this is ${bold}bold${normal} but this isn't"
