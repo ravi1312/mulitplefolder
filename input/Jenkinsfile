@@ -5,9 +5,9 @@ pipeline {
     }
     stages {
         stage('Build') {
-             environment { 
-                    AOEU= sh (returnStdout: true, script: 'echo \033[1;30mHello \033[0mcolorful world!').trim()
-                }
+         //    environment { 
+           //         AOEU= sh (returnStdout: true, script: 'echo \033[1;30mHello \033[0mcolorful world!').trim()
+             //   }
             steps {
                 echo '\033[1;30mHello \033[0mcolorful world!'
                 //hello=$(echo 'hello')
