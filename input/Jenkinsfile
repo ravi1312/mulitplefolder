@@ -1,6 +1,15 @@
 pipeline {
     agent any
+    options {
+        ansiColor('xterm')
+    }
     stages {
+            stages {
+        stage('Build') {
+            steps {
+                echo '\033[34mHello\033[0m \033[33mcolorful\033[0m \033[35mworld!\033[0m'
+            }
+        }
         stage('Example') {
            // input {
              //   message "Should we continue?"
@@ -13,12 +22,12 @@ pipeline {
             //}
             steps {
                 script{
-                    sh """
-                    #!/bin/bash
-                    BLUE='\e[34m'
-                    echo -e "${BLUE}INFO: Information goes here.${BLUE}"
-                    """
-                    echo "${table}"
+                   // sh """
+                 //   #!/bin/bash
+                   // BLUE='\e[34m'
+                    //echo -e "${BLUE}INFO: Information goes here.${BLUE}"
+                    //"""
+                   // echo "${table}"
                     def USER_INPUT = input(
                     message: 'User input required - Some Yes or No question?',
                     parameters: [
