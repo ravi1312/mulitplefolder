@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             environment{
-                testing = echo '\033[1;30mHello beautiful\033[0m'
+                testing = $(echo '\033[1;30mHello beautiful\033[0m')
             }
             steps {
                 echo "${testing}"
