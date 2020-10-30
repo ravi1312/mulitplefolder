@@ -17,11 +17,11 @@ pipeline {
         stage('build') {
             steps{
                 script{
-                    def someGroovyVar = 'Hello world'
+                    def someGroovyVar = echo '\033[1;30mHello world'
                     withEnv(['VAR1=VALUE ONE',
                              "VAR2=${someGroovyVar}"
                             ]) {
-                        def result = sh(script: 'echo \033[1;30m$VAR1; echo $VAR2', returnStdout: true)
+                        def result = sh(script: 'echo $VAR1; echo $VAR2', returnStdout: true)
                         echo result
                     }
                 }
