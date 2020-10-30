@@ -10,6 +10,7 @@ pipeline {
             }
             steps {
                 echo "${testing}"
+                echo "${env.testing}"
                 echo '\033[1;30mHello \033[0mcolorful world!'
                 //hello=$(echo 'hello')
                 //echo "${hello}"
