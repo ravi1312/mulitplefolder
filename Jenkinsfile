@@ -6,7 +6,7 @@ pipeline {
 		choice(name: "java_version", choices: "11")
 		separator(name: "testing")
 		choice(name: "browser", choices: "chrome")
-		separator(name: "end")
+		//separator(name: "end")
 	}
     //parameters{
       //  string(name: '', description: 'Give the url to the GitHub')
