@@ -1,15 +1,14 @@
 pipeline {
     agent any
     properties([
-	parameters([
-		separator(name: "building", sectionHeader: "Build Environment"),
-		choice(name: "JAVA_VENDOR", choices: ["Coretto"]),
-		choice(name: "JAVA_VERSION", choices: ["11"]),
-		separator(name: "TEST_ENVIRONMENT", sectionHeader: "Test Environment"),
-		choice(name: "OS", choices: ["Linux"]),
-		choice(name: "BROWSER", choices: ["Chrome"])
-	])
-])
+	parameters {
+		separator(name: "building", sectionHeader: "Build Environment")
+		choice(name: "java_vendor", choices: "Corretto")
+		choice(name: "java_version", choices: "11")
+		separator(name: "testing")
+		choice(name: "browser", choices: "chrome")
+		separator(name: "end")
+	}
     //parameters{
       //  string(name: '', description: 'Give the url to the GitHub')
        // string(name: 'BranchName', defaultValue: '', description: 'Mention the Specified Branch Name')
