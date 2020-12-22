@@ -3,6 +3,7 @@ pipeline {
     parameters{
         string(name: '', description: 'Give the url to the GitHub')
         string(name: 'BranchName', defaultValue: '', description: 'Mention the Specified Branch Name')
+        separator(name: "building")
         string(name: 'GitToken', defaultValue: '', description: 'Input your Github developers Token')
        // extendedChoice defaultValue: '', description: '', descriptionPropertyValue: '', multiSelectDelimiter: ',', name: 'Mastercommitids', propertyFile: '/var/lib/jenkins/commits/Commit_ids.log', propertyKey: 'master-Branch_commit-ids', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_CHECKBOX', visibleItemCount: 10
         file description: '', name: ''
