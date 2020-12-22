@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    properties([
 	parameters {
 		separator(name: "building", sectionHeader: "Build Environment")
 		choice(name: "java_vendor", choices: "Corretto")
