@@ -2,7 +2,7 @@ pipeline {
     agent any
     properties([
 	parameters([
-		separator(name: "BUILD_ENVIRONMENT", sectionHeader: "Build Environment"),
+		separator(name: "building", sectionHeader: "Build Environment"),
 		choice(name: "JAVA_VENDOR", choices: ["Coretto"]),
 		choice(name: "JAVA_VERSION", choices: ["11"]),
 		separator(name: "TEST_ENVIRONMENT", sectionHeader: "Test Environment"),
