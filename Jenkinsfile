@@ -1,13 +1,23 @@
 pipeline {
     agent any
-    parameters{
-        string(name: '', description: 'Give the url to the GitHub')
-        string(name: 'BranchName', defaultValue: '', description: 'Mention the Specified Branch Name')
-        separator(name: "building", sectionHeader: "Build Environment")
-        string(name: 'GitToken', defaultValue: '', description: 'Input your Github developers Token')
+    properties([
+	parameters([
+		separator(name: "BUILD_ENVIRONMENT", sectionHeader: "Build Environment"),
+		choice(name: "JAVA_VENDOR", choices: ["Coretto"]),
+		choice(name: "JAVA_VERSION", choices: ["11"]),
+		separator(name: "TEST_ENVIRONMENT", sectionHeader: "Test Environment"),
+		choice(name: "OS", choices: ["Linux"]),
+		choice(name: "BROWSER", choices: ["Chrome"])
+	])
+])
+    //parameters{
+      //  string(name: '', description: 'Give the url to the GitHub')
+       // string(name: 'BranchName', defaultValue: '', description: 'Mention the Specified Branch Name')
+        //separator(name: "building", sectionHeader: "Build Environment")
+        //string(name: 'GitToken', defaultValue: '', description: 'Input your Github developers Token')
        // extendedChoice defaultValue: '', description: '', descriptionPropertyValue: '', multiSelectDelimiter: ',', name: 'Mastercommitids', propertyFile: '/var/lib/jenkins/commits/Commit_ids.log', propertyKey: 'master-Branch_commit-ids', quoteValue: false, saveJSONParameterToFile: false, type: 'PT_CHECKBOX', visibleItemCount: 10
-        file description: '', name: ''
-    }
+        //file description: '', name: ''
+    //}
 stages {
     stage ("Checkout Git Branch") {
         steps {
