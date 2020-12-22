@@ -1,13 +1,16 @@
 pipeline{
 	agent any
 	parameters {
+		separator(name: "building")
 		text(defaultValue: "", description: 'Give the total path of the folder', name: 'folderpath')
 		string(defaultValue: "", description: 'Give the name of the branch', name: 'Branch')
+		
 		
 	}
 	stages{
 		stage("build"){
 			steps{
+				echo "hello"
 				//sh "git init"
 				//sh "git config core.sparsecheckout true"
 				//sh "git sparse-checkout init '${params.folderpath}'"
@@ -17,17 +20,17 @@ pipeline{
 				//sh "git status"
 				//sh "ls"
 
-				sh """
-				echo "$folderpath"
-				
-				git checkout -b '${params.Branch}'
-				sh /var/lib/jenkins/script.sh "$WORKSPACE" "${folderpath}"
-				ls
-				git add .
-				git commit -m "commiting new branch"
+		//		sh """
+		//		echo "$folderpath"
+		//		
+		//		git checkout -b '${params.Branch}'
+		//		sh /var/lib/jenkins/script.sh "$WORKSPACE" "${folderpath}"
+		//		ls
+		//		git add .
+		//		git commit -m "commiting new branch"
 			
 
-				"""
+		//		"""
 			//	sh "git push origin https://4b924095e0e3627666b843f2e3c87b93649cec20@github.com/ravi1312/mulitplefolder.git"
 				//sh 'echo "file1/file2/file3/ >> .git/info/sparse-checkout"'
 			       // sh "cat file/file1"
