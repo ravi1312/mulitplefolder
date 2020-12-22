@@ -2,7 +2,7 @@ pipeline {
     agent any
 	parameters {
 		separator(name: "building", sectionHeader: "Build Environment")
-		choice(name: "java_vendor", choices: "Corretto")
+		choice(name: "java_vendor", choices: "Corretto", value: "building environment choice selection")
 		choice(name: "java_version", choices: "11")
 		string(name: 'BranchName', defaultValue: '', description: 'Mention the Specified Branch Name')
 		separator(name: "testing")
@@ -22,7 +22,7 @@ pipeline {
 			    steps {
 				    script{
 					    //echo "${params.}"
-					    echo "${params.BranchName}"
+					    echo "${params.java_vendor}"
 					    echo "input for .json file"
 					    def inputJsonPath = input message: 'Upload file', parameters: [file(name: 'test.csv', description: 'Upload only CSV file')]
 					    def JsonContent = readFile "${inputJsonPath}"
