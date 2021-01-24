@@ -3,6 +3,7 @@ pipeline {
 	parameters {
 		separator(name: "building", sectionHeader: "Build Environment")
 		choice(name: "java_vendor", choices: "Corretto", defaultValue: "building environment choice selection")
+		string(name: 'git_url', defaultValue: '', description: 'Mention the Specified Branch Name')
 		choice(name: "java_version", choices: "11")
 		string(name: 'BranchName', defaultValue: '', description: 'Mention the Specified Branch Name')
 		separator(name: "testing")
@@ -21,6 +22,7 @@ pipeline {
 		    stage ("Checkout Git Branch") {
 			    steps {
 				    script{
+					    echo "${params.git_url}"
 					    //echo "${params.}"
 					    echo "${params.java_vendor}"
 					    echo "input for .json file"
