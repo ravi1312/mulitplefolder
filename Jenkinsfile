@@ -10,8 +10,7 @@ pipeline {
 				script {
 					//docker.build registry + ":$BUILD_NUMBER"
 					docker.withRegistry('ravi1312/startup') {
-						sh "docker run ravi1312/startup"
-						sh "sleep 100"
+						sh "docker run ravi1312/startup sleep 100"
 					}
 					echo "hello"
 					sh """
