@@ -11,7 +11,6 @@ pipeline {
 					//docker.build registry + ":$BUILD_NUMBER"
 					docker.withRegistry('ravi1312/startup') {
 						sh "docker run ravi1312/startup"
-						sh "aws --version"
 					}
 					echo "hello"
 					sh """
