@@ -12,6 +12,7 @@ pipeline {
 					docker.withRegistry('ravi1312/startup') {
 						sh "docker run ravi1312/startup"
 					}
+					echo "hello"
 					//docker build --tag ravi1312/basic_docker:sample
 				}
 			}
