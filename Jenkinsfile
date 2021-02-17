@@ -14,9 +14,8 @@ pipeline {
 					}
 					echo "hello"
 					sh """
+					aws --version
 					git --version
-					#aws --version
-					mvn --version
 					"""
 					//docker build --tag ravi1312/basic_docker:sample
 				}
