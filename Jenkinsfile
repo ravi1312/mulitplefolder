@@ -8,7 +8,10 @@ pipeline {
 		stage('Building image') {
 			steps{
 				script {
-					docker.build registry + ":$BUILD_NUMBER"
+					//docker.build registry + ":$BUILD_NUMBER"
+					docker.withRegistry('ravi1312/startup') {
+						sh "docker pull ravi1312/startup"
+					}
 					//docker build --tag ravi1312/basic_docker:sample
 				}
 			}
