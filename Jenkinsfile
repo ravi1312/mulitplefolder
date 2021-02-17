@@ -5,6 +5,13 @@ pipeline {
 	}
 	agent any
 	stages {
+		stage('Build') {
+			agent {
+				docker {
+					image 'ravi1312/startup:latest'
+				}
+			}
+		}
 		stage('Building image') {
 			steps{
 				script {
