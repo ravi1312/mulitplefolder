@@ -11,6 +11,9 @@ pipeline {
 					image 'ravi1312/startup:latest'
 				}
 			}
+			steps{
+				echo "hi"
+			}
 		}
 		stage('Building image') {
 			steps{
