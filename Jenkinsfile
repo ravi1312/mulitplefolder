@@ -13,6 +13,11 @@ pipeline {
 						sh "docker run ravi1312/startup"
 					}
 					echo "hello"
+					sh """
+					git --version
+					aws --version
+					mvn --version
+					"""
 					//docker build --tag ravi1312/basic_docker:sample
 				}
 			}
