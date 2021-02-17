@@ -10,7 +10,7 @@ pipeline {
 				script {
 					//docker.build registry + ":$BUILD_NUMBER"
 					docker.withRegistry('ravi1312/startup') {
-						sh "docker run ravi1312/startup aws --version"
+						sh "docker run ravi1312/startup mvn --version"
 					}
 					echo "hello"
 					sh """
