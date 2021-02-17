@@ -20,7 +20,7 @@ pipeline {
 			steps{
 				script {
 					//docker.build registry + ":$BUILD_NUMBER"
-					docker.withRegistry('ravi1312/startup') {
+					docker.withRegistry('', registryCredential) {
 						dockerImage.push("$BUILD_NUMBER")
 					}
 					echo "hello"
