@@ -1,6 +1,6 @@
 pipeline {
 	environment {
-		registry = "ravi1312/startup:sample"
+		registry = "ravi1312/startup"
 		registryCredential = 'ravi@1312'
 	}
 	agent any
