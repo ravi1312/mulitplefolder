@@ -6,11 +6,11 @@ pipeline {
 	agent any
 	stages {
 		stage('Build') {
-			agent {
-				docker {
-					image 'ravi1312/startup:latest'
-				}
-			}
+			//agent {
+			//	docker {
+			//		image 'ravi1312/startup:latest'
+			//	}
+			//}
 			steps{
 				echo "hi"
 			}
@@ -20,7 +20,7 @@ pipeline {
 				script {
 					//docker.build registry + ":$BUILD_NUMBER"
 					docker.withRegistry('ravi1312/startup') {
-						image 'ravi1312/startup'
+						dockerImage.push("$BUILD_NUMBER")
 					}
 					echo "hello"
 					sh """
